@@ -1,0 +1,460 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Handlebars.js Introduction</title>
+    <link href="http://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link href="css/clutch-impress.css" rel="stylesheet" type="text/css" />
+    <link href="css/sunburst.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress">
+
+    <div id="intro" class="step" data-x="0" data-y="0" data-scale="10000">
+        <div class="container">
+            <!--
+            <div class="nine columns">
+                <h1>Handlebars.js Introduction</h1>
+                <p>Noah Jablonski</p>
+            </div>
+            <div class="six columns">
+                <div class="thumbnail">
+                    <img src="images/mustache.png">
+                </div>
+            </div>
+            !-->
+            <h1>Handlebars.js Introduction</h1>
+            <p>Noah Jablonski</p>
+        </div>
+    </div>
+
+    <!-- Section 1 !-->
+    <div class="step" data-x="-2450000" data-y="900000" data-scale="4000">
+        <h2>Overview</h2>
+        <p>An 'almost' logic-less templating language</p>
+    </div>
+
+    <div class="step small" data-x="-3670000" data-y="1400000" data-scale="1000">
+        <h1>Background</h1>
+        <p>Handlebars is an implementation of Mustache, and improves upon it by adding the following features:</p>
+        <ul>
+            <li>Pre-compile Templates</li>
+            <li>Block Helpers (if, with, unless, etc.)</li>
+            <li>Register Helpers (slight departure from 'logic-less')</li>
+            <li>Path-based Expressions (nested/parent properties)</li>
+        </ul>
+    </div>
+
+    <div class="step small" data-x="-2800000" data-y="1400000" data-scale="1000">
+        <h1>What To Expect</h1>
+        <ul>
+            <li>Clean Syntax - easy to create, easy to read</li>
+            <li>Small Learning Curve</li>
+            <li>Simplicity - sticks with what it's good at, keeps you from getting lost</li>
+            <li>Performance - not the quickest JS templating engine, but not far behind <a href="http://engineering.linkedin.com/frontend/client-side-templating-throwdown-mustache-handlebars-dustjs-and-more" target="_blank">(see performance test)</a></li>
+        </ul>
+    </div>
+
+    <div class="step small" data-x="-1950000" data-y="1400000" data-scale="1000">
+        <h1>What 'Not' To Expect</h1>
+        <ul>
+            <li>Outstanding Documentation - Not the priority</li>
+            <li>Binding - Must re-render the content if data changes</li>
+            <li>Template Events</li>
+        </ul>
+    </div>
+
+    <div class="step small" data-x="-1100000" data-y="1400000" data-scale="1000">
+        <h1>The Happy Medium</h1>
+        <ul>
+            <li>Mustache.js - Templating and <strong>nothing else</strong></li>
+            <li>Handlebars.js - Templating and a <strong>bit extra</strong></li>
+            <li>Knockout.js - Templating and <strong>much more</strong></li>
+        </ul>
+    </div>
+
+    <!-- Section 2 !-->
+    <div class="step" data-x="-2450000" data-y="1900000" data-scale="4000">
+        <h2>The Basics</h2>
+        <p>Define > Compile > Render </p>
+    </div>
+
+    <div class="step small" data-x="-3670000" data-y="2400000" data-scale="1000">
+        <h1>Define</h1>
+        <p>A template is just <strong>html</strong> sprinkled with the Handlebars <strong>brackets</strong>. The name in brackets is tied to your data</p>
+        <pre class="prettyprint lang-html">
+var templateSource = "&lt;h1&gt;{{appName}}&lt;/h1&gt;&lt;img src='{{path}}'&gt;";
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-2800000" data-y="2400000" data-scale="1000">
+        <h1>Compile</h1>
+        <p>The <strong>Handlebars.compile</strong> method takes your template as its parameter and returns the compiled template</p>
+        <pre class="prettyprint lang-js">
+var template = Handlebars.compile(templateSource);
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-1950000" data-y="2400000" data-scale="1000">
+        <h1>Render</h1>
+        <p>The compiled template takes your data as its parameter and returns the rendered html</p>
+        <pre class="prettyprint lang-js">
+var data = {
+    appName: "Getting Started Demo",
+    path: "images/Chrysanthemum.jpg"
+};
+
+var renderedHtml = template(data);
+$("#templateContainer").html(renderedHtml);
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-1100000" data-y="2605000" data-scale="1000">
+        <h1>All Together Now</h1>
+        <p>index.html</p>
+        <pre class="prettyprint lang-html">
+&lt;head&gt;
+    &lt;script type="text/javascript" src="js/handlebars-1.0.rc.1.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/jquery-1.8.0.min.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript" src="js/app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="templateContainer"&gt; &lt;/div&gt;
+&lt;/body&gt;
+        </pre>
+        <p>app.js</p>
+        <pre class="prettyprint lang-js">
+$(document).ready(function() {
+    var data = {
+        appName: "Getting Started Demo",
+        path: "images/Chrysanthemum.jpg"
+    };
+
+    var templateSource = "&lt;h1&gt;{{appName}}&lt;/h1&gt;&lt;img src='{{path}}'&gt;";
+    var template = Handlebars.compile(templateSource);
+
+    $("#templateContainer").html(template(data));
+});
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-1100000" data-y="2605000" data-scale="1000" data-rotate-y="90">
+        <iframe class="iframe" src="demos/demo1/"> </iframe>
+        <a href="demos/downloads/demo1.zip">download source</a>
+    </div>
+
+    <!-- Section 3 !-->
+    <div class="step" data-x="-2450000" data-y="3000000" data-scale="4000">
+        <h2>Built-In Block Helpers</h2>
+        <p>Looping > if/else/unless > Paths</p>
+    </div>
+
+    <div class="step small" data-x="-3670000" data-y="3730000" data-scale="1000">
+        <h1>Looping</h1>
+        <p>The <strong>each</strong> block helper allows you to iterate over a list.</p>
+        <pre class="prettyprint lang-html">
+var templateSource = "&lt;h1&gt;{{appName}}&lt;/h1&gt;" +
+                     "{{#each images}}" +
+                        "&lt;img class='image' src='{{path}}'&gt;" +
+                     "{{/each}}";
+        </pre>
+        <pre class="prettyprint lang-js">
+var data = {
+    appName: "Demo 2",
+    images: [
+        {path: "images/Chrysanthemum.jpg"},
+        {path: "images/Desert.jpg"},
+        {path: "images/Hydrangeas.jpg"},
+        {path: "images/Jellyfish.jpg"},
+        {path: "images/Koala.jpg"},
+        {path: "images/Lighthouse.jpg"},
+        {path: "images/Penguins.jpg"},
+        {path: "images/Tulips.jpg"}
+    ]
+};
+        </pre>
+        <pre class="prettyprint lang-css">
+.imageContainer {
+    float: left;
+    padding: 5px;
+}
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-3670000" data-y="3770000" data-scale="1000" data-rotate-y="90">
+        <iframe class="iframe" src="demos/demo2/"> </iframe>
+        <a href="demos/downloads/demo2.zip">download source</a>
+    </div>
+
+    <div class="step small" data-x="-2800000" data-y="3800000" data-scale="1000">
+        <h1>if/else/unless</h1>
+        <p>These helpers evaluate if the variable is true or false. Conditionals (classification == 'flower') not allowed.</p>
+        <pre class="prettyprint lang-html">
+var templateSource = "&lt;h1&gt;{{appName}}&lt;/h1&gt;" +
+                     "&lt;h2&gt;Not Yet Viewed&lt;/h2&gt;" +
+                     "&lt;div class='container'&gt;" +
+                     "{{#each images}}" +
+                        "{{#unless visited}}" +
+                            "&lt;img class='image' src='{{path}}'&gt;" +
+                        "{{/unless}}" +
+                    "{{/each}}" +
+                    "&lt;div&gt;" +
+                    "&lt;h2&gt;Viewed&lt;/h2&gt;" +
+                    "&lt;div class='container'>" +
+                    "{{#each images}}" +
+                        "{{#if visited}}" +
+                            "&lt;img class='image' src='{{path}}'&gt;" +
+                        "{{/if}}" +
+                    "{{/each}}" +
+                    "&lt;div&gt;";
+        </pre>
+        <pre class="prettyprint lang-js">
+var data = {
+        appName: "Demo 3",
+        images: [
+            {visited: true, path: "images/Chrysanthemum.jpg"},
+            {visited: false, path: "images/Desert.jpg"},
+            {visited: false, path: "images/Hydrangeas.jpg"},
+            {visited: true, path: "images/Jellyfish.jpg"},
+            {visited: false, path: "images/Koala.jpg"},
+            {visited: true, path: "images/Lighthouse.jpg"},
+            {visited: false, path: "images/Penguins.jpg"},
+            {visited: false, path: "images/Tulips.jpg"}
+        ]
+    };
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-2800000" data-y="3800000" data-scale="1000" data-rotate-y="90">
+        <iframe class="iframe" src="demos/demo3/"> </iframe>
+        <a href="demos/downloads/demo3.zip">download source</a>
+    </div>
+
+    <div class="step small" data-x="-1950000" data-y="3730000" data-scale="1000">
+        <h1>Paths</h1>
+        <p>Access the <strong>child/property</strong>: {{authors.length}} Authors</p>
+        <p>Access the <strong>parent</strong>: Created by {{../../name}}</p>
+        <pre class="prettyprint lang-html">
+var templateSource = "&lt;h1&gt;{{appName}} - {{authors.length}} Authors&lt;/h1&gt;" +
+                     "&lt;h2&gt;Not Yet Viewed&lt;/h2&gt;" +
+                     "&lt;div class='container'&gt;" +
+                     "{{#each authors}}" +
+                         "{{#each images}}" +
+                             "{{#unless visited}}" +
+                                "&lt;div class='imageContainer'&gt;" +
+                                "&lt;img class='image' src='{{path}}'&gt;" +
+                                "&lt;p&gt;Created by {{../../name}}&lt;/p&gt;" +
+                                "&lt;/div&gt;" +
+                             "{{/unless}}" +
+                         "{{/each}}" +
+                     "{{/each}}" +
+                     "&lt;/div&gt;" +
+                     "&lt;h2&gt;Viewed&lt;/h2&gt;" +
+                     "&lt;div class='container'&gt;" +
+                     "{{#each authors}}" +
+                         "{{#each images}}" +
+                             "{{#if visited}}" +
+                                "&lt;div class='imageContainer'&gt;" +
+                                "&lt;img class='image' src='{{path}}'&gt;" +
+                                "&lt;p&gt;Created by {{../../name}}&lt;/p&gt;" +
+                                "&lt;/div&gt;" +
+                             "{{/if}}" +
+                         "{{/each}}" +
+                    "{{/each}}" +
+                    "&lt;/div&gt;";
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-1950000" data-y="3730000" data-scale="1000" data-rotate-y="90">
+        <iframe class="iframe" src="demos/demo4/"> </iframe>
+        <a href="demos/downloads/demo4.zip">download source</a>
+    </div>
+
+    <!-- Section 4 !-->
+    <div class="step" data-x="-2450000" data-y="4700000" data-scale="4000">
+        <h2>Defining Your Own Helpers</h2>
+        <p>When the built-in helpers just don't cut it</p>
+    </div>
+
+    <div class="step small" data-x="-3670000" data-y="5209000" data-scale="1000">
+        <h1>Why do I need to define my own helpers?</h1>
+        <p>As you will soon learn if you ever use Mustache.js, sometimes the built-in helpers just don't cut it.  Sometimes you will need to:</p>
+        <ul>
+            <li>Simplify your templates</li>
+            <li>Perform conditional checks on your data (if x == '1')</li>
+            <li>Define custom expressions (2456224 = 10/24/2012)</li>
+            <li>Tie events to your template</li>
+        </ul>
+    </div>
+
+    <div class="step small" data-x="-2800000" data-y="5200000" data-scale="1000">
+        <h1>Redefine Our Template</h1>
+        <p>We have replaced our previous template with a custom helper called <strong>imageSorter</strong>.  In addition, we have created another custom helper called <strong>classificationMenu</strong> that builds a menu based of the new sortFields array.</p>
+        <pre class="prettyprint lang-html">
+var templateSource = "&lt;h1&gt;{{appName}} - {{authors.length}} Authors&lt;/h1&gt;" +
+                     "{{classificationMenu this}}" +
+                     "{{imageSorter this false}}" +
+                     "{{imageSorter this true}}";
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-2800000" data-y="5300000" data-scale="1000">
+        <p>Our new data structure contains a <strong>sortFields</strong> array and an image <strong>classification</strong></p>
+        <pre class="prettyprint lang-js">
+var data = {
+    appName: "Demo 6",
+    sortFields: ["flower", "landscape", "animal"],
+    authors: [
+        {
+            name: "Bob",
+            images: [
+                {classification: "flower", visited: true, path: "images/Chrysanthemum.jpg"},
+                {classification: "landscape", visited: false, path: "images/Desert.jpg"},
+                {classification: "flower", visited: false, path: "images/Hydrangeas.jpg"},
+                {classification: "animal", visited: true, path: "images/Jellyfish.jpg"}
+            ]
+        },
+        {
+            name: "Jane",
+            images: [
+                {classification: "animal", visited: false, path: "images/Koala.jpg"},
+                {classification: "landscape", visited: true, path: "images/Lighthouse.jpg"},
+                {classification: "animal", visited: false, path: "images/Penguins.jpg"},
+                {classification: "flower", visited: false, path: "images/Tulips.jpg"}
+            ]
+        }
+    ]
+};
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-1950000" data-y="5400000" data-scale="1000">
+        <h1>classificationMenu - Event Handling</h1>
+        <pre class="prettyprint lang-js">
+Handlebars.registerHelper(
+    'classificationMenu',
+    function(data, sortType) {
+        var result = '';
+        result += '&lt;ul id="sortMenu"&gt;';
+
+        result += '&lt;li&gt;';
+        result += '&lt;a id="active" class="menuItem" href="#"&gt;all&lt;/a&gt;';
+        result += '&lt;/li&gt;';
+
+        $(data.sortFields).each(function(key, sortField) {
+            result += '&lt;li&gt;';
+            result += '&lt;a class="menuItem" href="#"&gt;' + sortField + '&lt;/a&gt;&lt;'
+            result += '&lt;/li&gt;';
+        });
+
+        result += '&lt;/ul&gt;';
+
+        return new Handlebars.SafeString(result);
+    }
+);
+        </pre>
+        <pre class="prettyprint lang-js">
+$('.menuItem').live(
+    "click",
+    function (e) {
+        if(!lastSelectedMenuItem) lastSelectedMenuItem = $('#active');
+        lastSelectedMenuItem.attr('id', '');
+        $(e.currentTarget).attr('id', 'active');
+        lastSelectedMenuItem = $(e.currentTarget);
+        filter = lastSelectedMenuItem.html();
+        renderTemplate();
+    }
+);
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-1100000" data-y="5370000"  data-scale="1000">
+        <h1>imageSorter - Conditionals</h1>
+        <pre class="prettyprint lang-js">
+{classification: "flower", visited: true, path: "images/Chrysanthemum.jpg"}
+        </pre>
+        <pre class="prettyprint lang-js">
+Handlebars.registerHelper(
+'imageSorter',
+function(data, visited) {
+    var result = '';
+    result += "&lt;div class='container'&gt;";
+
+    var header = visited ? 'Viewed' : 'Not Yet Viewed';
+    result += "&lt;h2&gt;" + header + "&lt;/h2&gt;";
+
+    $(data.authors).each(function(key, author) {
+      $(author.images).each(function(key, image) {
+
+      var filterMatch = image.classification == filter || filter == 'all';
+      if(image.visited == visited && filterMatch) {
+        result += "&lt;div class='imageContainer'&gt;";
+        result += "&lt;img class='image' src='" + image.path + "'&gt;";
+        result += "&lt;p&gt;Created by " + author.name  + "&lt;/p&gt;";
+        result += "&lt;/div&gt;";
+      }
+
+      });
+    });
+
+    result += "&lt;/div&gt;";
+
+    return new Handlebars.SafeString(result);
+}
+);
+        </pre>
+    </div>
+
+    <div class="step small" data-x="-230000" data-y="5180000"  data-scale="1000">
+        <h1>Re-Rendering Required</h1>
+        <p>You must recompile your template whenever changes need to be reflected.</p>
+        <pre class="prettyprint lang-js">
+function renderTemplate() {
+    var templateContainer = $("#templateContainer");
+    templateContainer.empty();
+    var template = Handlebars.compile(templateSource);
+    templateContainer.html(template(data));
+}
+        </pre>
+    </div>
+
+    <div class="step small invisible" data-x="-1090000" data-y="5180000"  data-scale="1000" data-rotate-y="90">
+        <iframe class="iframe" src="demos/demo5/"> </iframe>
+        <a href="demos/downloads/demo5.zip">download source</a>
+    </div>
+
+    <!-- Section 5 !-->
+    <div class="step" data-x="-2450000" data-y="6700000" data-scale="4000">
+        <h2>Summary</h2>
+        <ul>
+            <li>Clean Syntax</li>
+            <li>Simple and Sufficient</li>
+            <li>Good at Templating, don't expect much more</li>
+            <li>Questions?</li>
+        </ul>
+    </div>
+
+</div>
+
+<script src="js/impress.js"></script>
+<script src="js/prettify.js"></script>
+<script>
+    var api = impress().init();
+    prettyPrint();
+</script>
+
+</body>
+</html>
+

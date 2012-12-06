@@ -1,0 +1,90 @@
+.container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+.container .column,
+.container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+
+/* Base Grid */
+.container .one.column,
+.container .one.columns                     { width: 40px;  }
+.container .two.columns                     { width: 100px; }
+.container .three.columns                   { width: 160px; }
+.container .four.columns                    { width: 220px; }
+.container .five.columns                    { width: 280px; }
+.container .six.columns                     { width: 340px; }
+.container .seven.columns                   { width: 400px; }
+.container .eight.columns                   { width: 460px; }
+.container .nine.columns                    { width: 520px; }
+.container .ten.columns                     { width: 580px; }
+.container .eleven.columns                  { width: 640px; }
+.container .twelve.columns                  { width: 700px; }
+.container .thirteen.columns                { width: 760px; }
+.container .fourteen.columns                { width: 820px; }
+.container .fifteen.columns                 { width: 880px; }
+.container .sixteen.columns                 { width: 940px; }
+
+.container .one-third.column                { width: 300px; }
+.container .two-thirds.column               { width: 620px; }
+
+.thumbnail {
+    background: #ddd;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+}
+
+.thumbnail::after {
+    content: ".";
+    visibility: hidden;
+}
+
+.thumbnail img {
+    vertical-align: middle;
+}
+
+
+
+
+ul{
+    list-style:none;
+    margin:0 0 1em 3px;
+    padding: 0;
+}
+ul li{
+    line-height:1.3em;
+    margin: .25em 0;
+    padding: 0 0 0 45px;
+    background:url(../images/mustacheBullet.png) no-repeat 0 20px;
+}
+
+a {
+    color: #73bef4;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: none;
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus {
+    color: #0490f4;
+    text-shadow: none;
+}
+
+.small {
+    min-height: 570px;
+}
+
+.iframe {
+    min-height: 900px;
+    min-width: 900px;
+    padding-top: 200px;
+}
+
+.impress-enabled .invisible { opacity: 0 }

@@ -1,0 +1,48 @@
+.container {
+    float: left;
+    width: 100%;
+}
+
+.imageContainer {
+    float: left;
+}
+
+.image {
+    float: left;
+    padding: 5px;
+}
+
+#sortMenu {
+    float: left;
+    padding-left: 0;
+}
+
+#sortMenu li {
+    padding-right: 5px;
+    list-style: none;
+    float: left;
+}
+
+a {
+    color: #0490f4;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: none;
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus,
+#active{
+    color: white;
+    text-shadow: none;
+    border-bottom: #025591 solid thin;
+    background: #025591;
+}

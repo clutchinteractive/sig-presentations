@@ -1,0 +1,12 @@
+.container {
+    float: left;
+}
+
+.imageContainer {
+    float: left;
+}
+
+.image {
+    float: left;
+    padding: 5px;
+}

@@ -1,0 +1,54 @@
+body {
+	background-color: #222;
+	font-size: 0.25em;
+}
+
+pre.lang-html {
+	font-size: .5em;
+	line-height: 1em;
+	display: inline;
+	margin: 0;
+}
+p, pre {
+	margin-top: 0;
+}
+fieldset legend {
+	text-align: right;
+}
+.codeStep fieldset {
+	height: 510px;
+}
+div.step.active.codeStep ~ .codeStepChild {
+	opacity: 1;
+}
+.codeStepChild .codeHint {
+	font-size: 0.5em;
+	display: none;
+}
+div.step.codeStepChild {
+	padding: 5px;
+	margin: 0 0 0 95px;
+	width: 1200px;
+	line-height: 0em;
+}
+div.step.active.codeStepChild {
+	background-color: #fff;
+}
+div.step.active.codeStepChild .codeHint {
+	display:inline;
+}
+.vertical-center.slide {
+    text-align: center;
+}
+
+.vertical-center.slide:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+h1.vertical-center {
+    display: inline-block;
+    vertical-align: middle;
+}

@@ -1,0 +1,8 @@
+From c:\users\mshooks
+	npm install handlebars
+
+	npm install -g express
+	express --sessions --css stylus --ejs sigapp
+
+From packageapps
+	npm install

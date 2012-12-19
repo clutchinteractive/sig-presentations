@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1024" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>Node.js Introduction</title>
+	<link href="http://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+	<link href="static/css/clutch-impress.css" rel="stylesheet" type="text/css" />
+	<link href="static/css/sunburst.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="impress-not-supported">
+
+<!-- Fallback message -->
+<div class="fallback-message">
+	<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+	<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!-- Presentation -->
+<div id="impress">
+	<div id="intro" class="step" data-x="0" data-y="0">
+		<h1>Node.js Introduction</h1>
+		<p>Matthew Shooks</p>
+	</div>
+
+	<div id="overview" class="step" data-x="1000" data-y="0">
+		<h2>Overview</h2>
+		<ul>
+			<li>background info</li>
+			<li>installation</li>
+			<li>package management</li>
+			<li>callback hell</li>
+			<li>express and templates</li>
+		</ul>
+	</div>
+
+	<div id="background-info-1" class="step" data-x="2000" data-y="0">
+		<h2>JavaScript on the backend?</h2>
+		<ul>
+			<li>better than JScript</li>
+			<li>V8 JavaScript Engine</li>
+			<li>libUV</li>
+			<li>scalable</li>
+		</ul>
+	</div>
+
+	<div id="background-info-2" class="step" data-x="3000" data-y="0">
+		<h2>Don't block me</h2>
+		<ul>
+			<li>event driven</li>
+			<li>non blocking IO</li>
+			<li>one thread</li>
+		</ul>
+	</div>
+
+	<div id="background-info-3" class="step" data-x="4000" data-y="0">
+		<h2>Danger!</h2>
+		<ul>
+			<li>Node is multi platform ...</li>
+			<li>... packages not so much</li>
+			<li>async programming is key</li>
+			<li>not quite 1.0 but close</li>
+		</ul>
+	</div>
+
+	<div id="bad-sync-example" class="step" data-x="5000" data-y="0">
+		<h2>What is wrong with this?</h2>
+		<pre class="prettyprint lang-js"><code>var data;
+fs.readFile('./data.json', function (err, content) {
+  if (err) throw err;
+  data = content;
+});
+res.send('bad_sync_example = ' + data);</code></pre>
+		<a href="/bad_sync_example" target="_blank">Example</a>
+	</div>
+
+	<div id="good-sync-example" class="step" data-x="6000" data-y="0">
+		<h2>Although correct, there is better way ...</h2>
+		<pre class="prettyprint lang-js"><code>var data = fs.readFileSync('./data.json');
+res.send('good_sync_example = ' + data);</code></pre>
+		<a href="/good_sync_example" target="_blank">Example</a>
+	</div>
+
+	<div id="async-example" class="step" data-x="7000" data-y="0">
+		<h2>Oh yeah, that's the spot</h2>
+		<pre class="prettyprint lang-js"><code>fs.readFile('./data.json', function (err, content) {
+  if (err) throw err;
+  res.send('async_example = ' + content);
+});</code></pre>
+		<a href="/async_example" target="_blank">Example</a>
+	</div>
+
+	<div id="installation" class="step" data-x="8000" data-y="0">
+		<h2>Installation</h2>
+		<ul>
+			<li><a href="http://nodejs.org/download/" target="_blank">binaries</a></li>
+			<li><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager" target="_blank">package managers</a></li>
+			<li><a href="https://github.com/joyent/node/wiki/Installation" target="_blank">I know how to MAKE things</a></li>
+		</ul>
+	</div>
+
+	<div id="npm" class="step" data-x="9000" data-y="0">
+		<h2>npm (node pm)</h2>
+		<ul>
+			<li>install</li>
+			<li>global install</li>
+			<li>package.json</li>
+		</ul>
+	</div>
+
+	<div id="callback-hell" class="step" data-x="10000" data-y="0">
+		<h2>Callback Hell</h2>
+		<ul>
+			<li>continuation passing style</li>
+			<li>nested callbacks hurt my eyes</li>
+			<li>an alternative</li>
+			<li>promises/futures</li>
+		</ul>
+	</div>
+
+	<div id="continuation-passing-style" class="step" data-x="11000" data-y="0">
+		<h2>Continuation Passing Style</h2>
+		<pre class="prettyprint lang-js"><code>function example(err, optionalA, optionalB, callback) {
+  var args = [];
+  for (var i = 0; i < arguments.length; i++) {
+    args.push(arguments[i]);
+  }
+
+  err = args.shift(); // first argument is the error object
+
+  callback = args.pop(); // last argument is the callback function
+
+  if (args.length > 0) optionalA = args.shift(); else optionalA = null;
+  if (args.length > 0) optionalB = args.shift(); else optionalB = null;
+
+  if (err) return callback(err);
+
+  // do something useful here
+}</code></pre>
+	</div>
+
+	<div id="nested-callbacks" class="step" data-x="12000" data-y="0">
+		<h2>Nested callbacks hurt my eyes</h2>
+		<pre class="prettyprint lang-js"><code>var getItems = function(response){
+  db.open(function(err, db){
+    db.collection('items', function(err, collection){
+      collection.find(function(err, cursor){
+        cursor.toArray(function(err, items){
+          response(items);
+        })
+      })
+    })
+  })
+}</code></pre>
+	</div>
+
+	<div id="flattened-callbacks" class="step" data-x="13000" data-y="0">
+		<h2>That is better</h2>
+		<pre class="prettyprint lang-js"><code>var getItems = function(response){
+  db.open(withDB);
+
+  function withDB(err, db) {
+    db.collection('items', withCollection);
+  }
+
+  function withCollection(err, collection) {
+    collection.find(withCursor);
+  }
+
+  function withCursor(err, cursor) {
+    cursor.toArray(withItems);
+  }
+
+  function withItems(err, items) {
+    response(items);
+  }
+}</code></pre>
+	</div>
+
+	<div id="promises-futures" class="step" data-x="14000" data-y="0">
+		<h1>Promises and Futures</h1>
+		<ul>
+			<li>a topic of its own</li>
+			<li>helps with depending on results from async functions</li>
+			<li>numerous node libraries to chose from</li>
+		</ul>
+	</div>
+
+	<div id="express" class="step" data-x="15000" data-y="0">
+		<h1>Express</h1>
+		<ul>
+			<li>web application framework</li>
+			<li>handles routing and templating</li>
+			<li>quick application creation</li>
+			<li>used for this presentation</li>
+		</ul>
+	</div>
+
+	<div id="express-rest" class="step" data-x="16000" data-y="0">
+		<h1>Being RESTful is easy with Express</h1>
+		<pre class="prettyprint lang-js"><code>app.get('/employees', employee.findAll);
+app.get('/employees/:id', employee.findById);
+app.post('/employees', employee.addEmployee);
+app.put('/employees/:id', employee.updateEmployee);
+app.delete('/employees/:id', employee.deleteEmployee);</code></pre>
+	</div>
+
+	<div id="templating" class="step" data-x="17000" data-y="0">
+		<h2>Handlebar Mustaches are back in style</h2>
+		<div class="threeColumn">
+			<div>
+				<pre class="simpleCodeSample"><b>Jade</b><br />
+type 5
+html
+  head
+    title=title
+  body
+    h1=title
+				</pre>
+			</div>
+			<div>
+				<pre class="simpleCodeSample"><b>EJS</b><br />
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+			</div>
+			<div>
+				<pre class="simpleCodeSample"><b>Handlebars/Mustache</b><br />
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;{{title}}&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+				</pre>
+			</div>
+		</div>
+		<a href="/template_example" target="_blank">Example</a>
+	</div>
+
+	<div id="questions" class="step" data-x="18000" data-y="0">
+		<h1>Questions?</h1>
+	</div>
+</div>
+
+<script src="static/js/impress.js"></script>
+<script src="static/js/prettify.js"></script>
+<script>
+	impress().init();
+	prettyPrint();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Open Source Sig: Wordpress</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet">
+    <link href="impress.css" rel="stylesheet">
+    <link href="./files/prettify.css" rel="stylesheet">
+    <script src="./files/prettify.js"></script>
+    <meta name="robots" content="noindex,nofollow">
+ 
+</head>
+<body>
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">    
+
+<div class="step " 
+	data-x="1"
+	data-y="1"
+	data-z="10000"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>WordPress SIG</h2>
+   <p style="text-align: center;">By <a href="http://twitter.com/russellskaggs">@russellskaggs</a></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="1"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Introduction</h2>
+   <ul>
+<li>Created as a blogging Platform</li>
+<li>Evolved into a full CMS</li>
+<li>Powers 17.2% of the web (<em style="font-size: .7em;">54.8% of CMS Market Share</em>)</li>
+</ul>
+</div>
+
+
+
+<div class="step start" 
+	data-x="-2000"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="-90"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>CMS Market Share</h2>
+   <p class="aligncenter"><img class="aligncenter" title="Screen shot 2012-11-14 at 9.41.14 PM" src="./files/Screen-shot-2012-11-14-at-9.41.14-PM.png" alt="" width="467" height="385" /></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="-1000"
+	data-y="-1000"
+	data-z="1"
+	data-rotate-x="-90"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Language Market Share</h2>
+   <p class="aligncenter"><a href="./files/Screen-shot-2012-11-14-at-9.43.09-PM.png"><img class="size-full wp-image-714 aligncenter" title="Screen shot 2012-11-14 at 9.43.09 PM" src="./files/Screen-shot-2012-11-14-at-9.43.09-PM.png" alt="" width="481" height="231" /></a></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="1000"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Benefits</h2>
+   <ul>
+<li>Low Learning Curve</li>
+<li>User Friendly Backend interface</li>
+<li>Flexible</li>
+<li>Well Document API</li>
+<li>Large Community</li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="1000"
+	data-y="1000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Data Model</h2>
+   <p style="text-align: center;"><a href="./files/WP3.0-ERD.png"><img class="aligncenter  wp-image-740" title="WP3.0-ERD" src="./files/WP3.0-ERD-1014x1024.png" alt="" width="507" height="512" /></a></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="2000"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Themes and Plugins</h2>
+   <ul>
+<li><span style="line-height: 13px;">Themes are primarily used for Styling</span></li>
+<li><span style="line-height: 13px;">Plugins are for extending functionality</span></li>
+<li>Advanced Themes can add Functionality as well</li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="2000"
+	data-y="500"
+	data-z="1"
+	data-rotate-x="90"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Theme Structure</h2>
+   <ul>
+<li>A theme may have at minimum
+<ul>
+<li>style.css</li>
+<li>index.php</li>
+</ul>
+</li>
+<li>Some post types allow manual theme selection</li>
+<li>WordPress will try to select the theme using its hierarchy</li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="3000"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Post Types</h2>
+   <ul>
+<li>Defaulted with 5:
+<ul>
+<li>Post</li>
+<li>Page</li>
+<li>Attachment</li>
+<li>Revisions</li>
+<li>Nav Menus</li>
+</ul>
+</li>
+<li>Can Create your own Post Types</li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="3000"
+	data-y="-500"
+	data-z="1"
+	data-rotate-x="90"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Template Hierarchy</h2>
+   <p style="text-align: center;"><img class="aligncenter  wp-image-741" title="Template_Hierarchy" src="./files/Template_Hierarchy-1024x1016.png" alt="" width="666" height="660" /></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="4000"
+	data-y="1"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Page Structure</h2>
+   <ul>
+<li><span style="line-height: 13px;">Header</span></li>
+<li><span style="line-height: 13px;">Footer</span></li>
+<li><span style="line-height: 13px;">Sidebar(s)</span></li>
+<li><span style="line-height: 13px;">Custom Template Parts</span></li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="4000"
+	data-y="1000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Headers &#038; Footers</h2>
+   <ul>
+<li>Used for the Common Top &amp; Bottom HTML</li>
+<li>wp_head()</li>
+<li>wp_foot();</li>
+<li>Can have multiple headers and footers per scenario</li>
+<li>get_header() calls header.php</li>
+<li>get_header(&#8216;test&#8217;) calls header-test.php</li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="4000"
+	data-y="2000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Sidebars</h2>
+   <ul>
+<li><span style="line-height: 13px;">Includes calls for 1 or more Registered Sidebars</span></li>
+<li><span style="line-height: 13px;">Sidebars can be registered using functions.php</span></li>
+<li><span style="line-height: 13px;">Registered Sidebars contain widgets defined in the admin panel</span></li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="4000"
+	data-y="3000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="33"
+	data-scale="1"
+>
+    <h2>Custom</h2>
+   <ul>
+<li><span style="line-height: 13px;">Any Custom HTML</span></li>
+<li><span style="line-height: 13px;">Not very common</span></li>
+<li><span style="line-height: 13px;">get_custom_part(&#8216;social&#8217;, &#8216;twitterFeed&#8217;) grabs social-twitterFeed.php</span></li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="4000"
+	data-y="4000"
+	data-z="1000"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>The Loop</h2>
+   <ul>
+<li><span style="line-height: 13px;">Executes for each Post</span></li>
+<li><span style="line-height: 13px;">Loop is same for single and multiple Post page</span></li>
+</ul>
+<p><code class="prettyprint lang-php"><br />
+//Loop<br />
+&lt;?php if (have_posts()) : ?&gt;<br />
+     &lt;?php while (have_posts()) : the_post(); ?&gt;<br />
+     &lt;!-- do stuff ... --&gt;<br />
+     &lt;?php endwhile; ?&gt;<br />
+&lt;?php endif; ?&gt;<br />
+</code></p>
+</div>
+
+
+
+<div class="step " 
+	data-x="3000"
+	data-y="3000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Expanding Themes</h2>
+   <ul>
+<li><span style="line-height: 13px;">Post Meta</span></li>
+<li><span style="line-height: 13px;">Post Types</span></li>
+<li><span style="line-height: 13px;">All done in functions.php</span></li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="2000"
+	data-y="3000"
+	data-z="1"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Functions.php</h2>
+   <ul>
+<li><span style="line-height: 13px;">Theme Functions File</span></li>
+<li><span style="line-height: 13px;">Registers theme support</span></li>
+<li><span style="line-height: 13px;">Hooking</span></li>
+<li><span style="line-height: 13px;">Can also create functions to be accessed in theme files</span></li>
+</ul>
+</div>
+
+
+
+<div class="step " 
+	data-x="1"
+	data-y="1"
+	data-z="20000"
+	data-rotate-x="0"
+	data-rotate-y="0"
+	data-rotate-z="0"
+	data-scale="1"
+>
+    <h2>Proudly Powered by</h2>
+   <p class="aligncenter"><img src="./files/wordpress-300x188.png" alt="" title="wordpress" width="300" height="188" class="aligncenter size-medium wp-image-739" /></p>
+</div>
+
+
+   
+</div>
+<script src="./files/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
